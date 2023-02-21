@@ -1,0 +1,36 @@
+<div class="form-container">
+  <div class="align-form">
+    <form 
+    #form = "ngForm"
+    (submit)="form.valid && addBox($event, form)">
+      <input 
+      name="titulo"
+      class="input-titulo" 
+      type="text" 
+        [(ngModel)]="titulo"
+        placeholder="Titulo del Box"
+        required/>
+      <textarea
+        name="descripcion"
+        id="descripcion"
+        cols="31"
+        rows="0"
+        [(ngModel)]="descripcion"
+        placeholder="Ingrese una descripcion"
+        required
+      ></textarea>
+      <input 
+      name="foto"
+      class="input-img" 
+      type="text" 
+      placeholder="imagen" 
+        [(ngModel)]="foto"
+        required
+      />
+      <button 
+      class="button" 
+      type="submit"
+      >subir vox</button>
+    </form>
+  </div>
+</div>

@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik';
+}
+
+
+:root{
+    --first-color : #17344e; 
+    --secondary-color : #162735;
+    --third-color :  #122c42;
+    --fourt-color : #0c1c2b;
+
+    --high-contraste : #026e99;
+}
+
+body{
+    background-color: var(--secondary-color);
+    overflow-x: hidden;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

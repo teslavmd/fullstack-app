@@ -1,0 +1,38 @@
+.form{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 50px;
+    z-index: 200;
+}
+
+nav{
+    height: 50px;
+    width: 100%;
+    background: var(--first-color);
+    display: flex;
+    justify-content: end;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.agregar-box{
+    margin: auto 20px;
+}
+
+.agregar-box button{
+    cursor: pointer;
+    border: none;
+    background: var(--high-contraste);
+    padding: 12px;
+    color: #fff;
+    border-radius: 5px 0 5px 0;
+
+}
+
+.agregar-box button:hover{
+    background-color: var(--third-color);
+}

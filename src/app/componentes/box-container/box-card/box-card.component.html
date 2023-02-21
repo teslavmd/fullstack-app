@@ -1,0 +1,7 @@
+<div class="box-grid">
+  <div *ngFor="let item of list" class="box-card">
+    <h3 class="box-title" >{{item.titulo}}</h3>
+    <a class="link-box" routerLink="/box/{{item.id}}"></a>
+    <img  class="img-box" [src]="item.foto" alt="">
+  </div>
+</div>

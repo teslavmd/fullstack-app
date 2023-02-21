@@ -1,0 +1,32 @@
+<div class="box-comment">
+
+    <div class="box-form">
+        <form #form="ngForm" (submit)="form.valid && subirComentario(comentario, form)">
+            <textarea
+                name="comentario"
+                [(ngModel)]="comentario"
+                id="comentario" 
+                cols="30" 
+                rows="0"
+                placeholder="Agregue un comentario. . ."
+                required
+                ></textarea>
+            <div class="button">
+                <button type="submit">Comentar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="box-comments-info">
+        <h3>Comentarios ({{listOfComments.length}})</h3>
+    </div>
+
+    <div *ngFor="let comment of listOfComments" class="comments">
+        <img class="user-pfp" src="https://via.placeholder.com/50/50" alt="">
+        <div class="user-text">
+            <div class="user-name"><span id="name">{{ comment.userName }}</span></div>
+            <p class="user-comment">{{ comment.contenido }}</p>
+        </div>
+    </div>
+
+</div>

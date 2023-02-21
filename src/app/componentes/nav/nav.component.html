@@ -1,0 +1,11 @@
+<nav>
+    <div class="agregar-box">
+        <button (click)="showFormPopUp()">{{ showForm? "Cerrar" : "Crear Box" }}</button>
+    </div>
+</nav>
+
+<div *ngIf="showForm" class="form">
+    <div>
+        <app-formulario-box (showForm)="showFormPopUp()"></app-formulario-box>
+    </div>
+</div>

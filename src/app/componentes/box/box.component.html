@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="box-container">
+        <div class="box-nav">
+            <a routerLink="/" class="box-button">Inicio</a>
+        </div>
+        
+        <div class="box-content">
+            <div class="box-img">
+                <img [src]="box.foto" alt="">
+            </div>
+            <div class="box-text">
+                <h2>{{box.titulo}}</h2>
+                <p>{{box.descripcion}}</p>
+            </div>
+        </div>
+        
+    </div>
+    <div class="comments-container">
+        <app-comentarios></app-comentarios>
+    </div>
+</div>
