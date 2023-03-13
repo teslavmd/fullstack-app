@@ -1,3 +1,14 @@
+/**PARA PODER REALIZAR EL MODELO RESPONSIVO *** BORRAR CUANDO HAGA FALTA**/
+
+
+.box-img{
+    width: 50%;
+    height: 400px;
+}
+
+
+/****/
+
 .container{
     width: 100vw;
     display: flex;
@@ -55,4 +66,36 @@
     min-height: calc(100vh - 50px);
     width: 45%;
     background: var(--third-color);
+}
+
+@media screen and (max-width : 800px){
+    
+    .container{
+        flex-direction: column;
+    }
+
+    .box-container{
+        width: 100%;
+        height: calc(80vh - 50px);
+
+    }
+
+    .comments-container{
+        width: 100%;
+    }
+
+
+}
+
+@media screen and (max-width : 600px){
+    .box-content{
+        flex-direction: column;
+    }
+
+    .box-text,
+    .box-img{
+        width: 100%;
+    }
+
+
 }

@@ -1,8 +1,7 @@
 export class Comentario {
+    id : string;
     constructor(
-        public id : number,
-        public fotoPfp : string,
         public contenido : string,
-        public userName : string,
+        public fecha : string,
     ){}
 }

@@ -3,6 +3,7 @@ import { Box } from '../modelos/box.model';
 
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,112 +11,200 @@ import { HttpClient } from '@angular/common/http';
 export class BoxService {
 
 
+  url : string = environment.url;
 
-  list : Box[] = [
-    { id : 1,
+   list : Box[] = [
+    { id : "1234512",
       titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/fashion"
-    },
-    { id : 2,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/people"
-    },
-    { id : 3,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/food"
-    },
-    { id : 4,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/sport"
-    },
-    { id : 5,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/nature"
-    },
-    { id : 6,
-      titulo : "JUAN MARTIN",
+      fecha : "",
       descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
       foto : "https://loremflickr.com/360/360/cats"
     },
-    { id : 7,
+    { id : "145",
       titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/animals"
-    },
-    { id : 8,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/nightlife"
-    },
-    { id : 9,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/transport"
-    },
-    { id : 10,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/city"
-    },
-    { id : 11,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/animals"
-    },
-    { id : 12,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/fashion"
-    },
-    { id : 13,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/technics"
-    },
-    { id : 14,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/business"
-    },
-    { id : 15,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/animals"
-    },
-    { id : 16,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/city"
-    },
-    { id : 17,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360"
-    },
-    { id : 18,
-      titulo : "JUAN MARTIN",
-      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/cats"
-    },
-    { id : 19,
-      titulo : "JUAN MARTIN",
+      fecha : "",
       descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
       foto : "https://loremflickr.com/360/360/dogs"
     },
-    { id : 20,
+    { id : "17567",
       titulo : "JUAN MARTIN",
+      fecha : "",
       descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360/"
+      foto : "https://loremflickr.com/360/360/cars"
     },
-    { id : 21,
+    { id : "13456",
       titulo : "JUAN MARTIN",
+      fecha : "",
       descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
-      foto : "https://loremflickr.com/360/360"
+      foto : "https://loremflickr.com/360/360/music"
+    },
+    { id : "1123",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/animals"
+    },
+    { id : "1456",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/art"
+    },
+    { id : "1345",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/fashion"
+    },
+    { id : "11234",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/tech"
+    },
+    { id : "1234512",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/cats"
+    },
+    { id : "145",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/dogs"
+    },
+    { id : "17567",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/cars"
+    },
+    { id : "13456",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/music"
+    },
+    { id : "1123",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/animals"
+    },
+    { id : "1456",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/art"
+    },
+    { id : "1345",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/fashion"
+    },
+    { id : "11234",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/tech"
+    },
+    { id : "1234512",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/cats"
+    },
+    { id : "145",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/dogs"
+    },
+    { id : "17567",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/cars"
+    },
+    { id : "13456",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/music"
+    },
+    { id : "1123",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/animals"
+    },
+    { id : "1456",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/art"
+    },
+    { id : "1345",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/fashion"
+    },
+    { id : "11234",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/tech"
+    },
+    { id : "1234512",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/cats"
+    },
+    { id : "145",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/dogs"
+    },
+    { id : "17567",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/cars"
+    },
+    { id : "13456",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/music"
+    },
+    { id : "1123",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/animals"
+    },
+    { id : "1456",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/art"
+    },
+    { id : "1345",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/fashion"
+    },
+    { id : "11234",
+      titulo : "JUAN MARTIN",
+      fecha : "",
+      descripcion : "NADA ESO QUEIRO SABER DE JUAN MARTIN",
+      foto : "https://loremflickr.com/360/360/tech"
     },
   ];
 
@@ -123,24 +212,21 @@ export class BoxService {
     private http : HttpClient,
   ) { }
 
-  getBoxes() : Box[]{
+  getBoxesOff(){
     return this.list;
   }
 
-  searchBox(id : number) : any{ 
-    let box;
-    this.list.forEach( el => {
-      if(id === el.id){
-        console.log(el);
-        box = el;
-      }
-    })
-    return box
+  getBoxes() : Observable<Box[]>{
+    return this.http.get<Box[]>(`${this.url}/box`);
+  }
+
+  searchBox(id : string) : Observable<Box>{
+    return this.http.get<Box>(`${this.url}/box/${id}`)
   }
 
 
-  addBox(box : Box){
-    this.list.push(box)
+  addBox(box : Box) : Observable<Box>{
+    return this.http.post<Box>(`${this.url}/box`, box);
   }
 
 }

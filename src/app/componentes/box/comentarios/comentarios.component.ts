@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Comentario } from 'src/app/modelos/comentario.model';
 import { ComentariosService } from 'src/app/servicios/comentarios.service';
@@ -10,7 +10,11 @@ import { ComentariosService } from 'src/app/servicios/comentarios.service';
 })
 export class ComentariosComponent implements OnInit {
 
-  listOfComments : Comentario[] = [];
+
+
+  @Input() id_box : string;
+  @Input() listOfComments : Comentario[];
+
 
   comentario : string = "";
   // userName : string = "";
@@ -21,31 +25,25 @@ export class ComentariosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getComments();
+    console.log(this.id_box);
 
     this.id = this.listOfComments.length;
   }
 
-  getComments(){
-    this.listOfComments = this.comentariosService.getComments()
-  }
+
 
 
   subirComentario(comentario : string, form : NgForm){
-    let id1 = (this.id + 1);
-
     let comment = new Comentario(
-      id1,
-      "",
       comentario,
-      "matiasvd"
+      "2022/06/03",
+
     )
 
-    this.comentariosService.subirComentario(comment);
+    this.comentariosService.addComent(comment, this.id_box).subscribe(data => console.log(data));
 
     form.reset();
 
-    this.getComments()
   }
 
 

@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Comentario } from '../modelos/comentario.model';
 
 @Injectable({
@@ -6,43 +9,20 @@ import { Comentario } from '../modelos/comentario.model';
 })
 export class ComentariosService {
 
-  listOfComents : Comentario[] = [
-    {
-      id : 1,
-      fotoPfp : "",
-      contenido : "HOLA POST BOX DESDE FRONT",
-      userName : "ChadOCA"
-    },
-    {
-      id : 2,
-      fotoPfp : "",
-      contenido : "kejeje ta bien",
-      userName : "matiasvd"
-    },
-    {
-      id : 3,
-      fotoPfp : "",
-      contenido : "qe bueno amigo matate",
-      userName : "cepitero"
-    },
-    {
-      id : 4,
-      fotoPfp : "",
-      contenido : "y nene down",
-      userName : "gordo123"
-    },
-  ] 
+  url : string = environment.url;
 
   constructor(
-
+    private http : HttpClient
   ) { }
 
-  getComments() : Comentario[]{
-    return this.listOfComents;
+
+
+  getComments() : Observable<Comentario[]>{
+    return this.http.get<Comentario[]>(`${this.url}/comments`)
   }
 
-  subirComentario(comentario: Comentario){
-    this.listOfComents.push(comentario);
+  addComent(comment: Comentario, id : string) : Observable<Comentario>{
+    return this.http.post<Comentario>(`${this.url}/comments/${id}`, comment);
   }
 
 }

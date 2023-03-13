@@ -18,11 +18,20 @@ export class BoxCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getBox();
+
+    //SERVER OFF
+  this.list = this.boxService.getBoxesOff();
+
+    //this.getBox();
   }
 
   getBox(){
-    this.list = this.boxService.getBoxes()
+    this.boxService.getBoxes().subscribe( data => {
+
+      console.log("boxes => " , data);
+
+      this.list = data;
+    })
   }
 
 }

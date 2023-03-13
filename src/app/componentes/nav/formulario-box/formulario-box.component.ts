@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
@@ -37,23 +38,38 @@ export class FormularioBoxComponent implements OnInit {
 
   addBox(event : Event, data : NgForm){
     event.preventDefault();
+
+    const date = new Date();
+    const datePipe = new DatePipe('en-US');
+    const formattedDate = datePipe.transform(date, 'yyyy/MM/dd');
+    console.log(formattedDate);
+
+    console.log("date => ", formattedDate);
+
     let box = new Box(
-      23,
       data.value.titulo,
       data.value.descripcion,
       data.value.foto,
+      formattedDate
     )
-    this.boxService.addBox(box);
+
+    //HTTP POST
+    this.boxService.addBox(box).subscribe(data =>{
+       console.log(data);
+
+       this._snackBar.open('BOX creado exitosamente', 'Cerrar', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        });
+    });
+    //
     data.reset();
 
     
-    this._snackBar.open('BOX creado exitosamente', 'Cerrar', {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-    });
+    
     
     this.showForm.emit(false);
    
-  }
+ }
 
 }
