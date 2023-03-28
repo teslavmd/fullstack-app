@@ -28,9 +28,7 @@ export class BoxComponent implements OnInit {
 
   searchBox(id : string){
     this.boxService.searchBox(id).subscribe( data => {
-      console.log("response => ", data);
       this.box = data;
-      console.log("BOX => ", this.box);
     });
   }
 }

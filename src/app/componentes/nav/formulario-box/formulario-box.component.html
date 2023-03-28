@@ -1,15 +1,14 @@
 <div class="form-container">
   <div class="align-form">
-    <form 
-    #form = "ngForm"
-    (submit)="form.valid && addBox($event, form)">
-      <input 
-      name="titulo"
-      class="input-titulo" 
-      type="text" 
+    <form #form="ngForm" (submit)="form.valid && addBox($event, form)">
+      <input
+        name="titulo"
+        class="input-titulo"
+        type="text"
         [(ngModel)]="titulo"
         placeholder="Titulo del Box"
-        required/>
+        required
+      />
       <textarea
         name="descripcion"
         id="descripcion"
@@ -19,18 +18,46 @@
         placeholder="Ingrese una descripcion"
         required
       ></textarea>
-      <input 
-      name="foto"
-      class="input-img" 
-      type="text" 
-      placeholder="imagen" 
+      <div class="button-options">
+        <button
+          *ngIf="!urlImg"
+          type="button"
+          (click)="usarBase64()"
+          class="button"
+          [disabled]="urlImg"
+        >
+          Subir IMG
+        </button>
+        <button
+          *ngIf="!base64Img"
+          type="button"
+          (click)="usarURL()"
+          class="button"
+          [disabled]="base64Img"
+        >
+          Cargar URL
+        </button>
+      </div>
+      <input
+        *ngIf="urlImg"
+        name="foto"
+        class="input-img"
+        type="text"
+        placeholder="imagen"
         [(ngModel)]="foto"
         required
       />
-      <button 
-      class="button" 
-      type="submit"
-      >subir vox</button>
+      <input
+        *ngIf="base64Img"
+        name="foto"
+        class="input-img"
+        type="file"
+        placeholder="imagen"
+        [(ngModel)]="foto"
+        required
+      />
+
+      <button class="button" type="submit">subir vox</button>
     </form>
   </div>
 </div>

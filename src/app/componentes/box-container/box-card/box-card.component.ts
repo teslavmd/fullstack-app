@@ -9,7 +9,6 @@ import { BoxService } from 'src/app/servicios/box.service';
 })
 export class BoxCardComponent implements OnInit {
 
-  // url = https://www.omdbapi.com/?apikey=cb969dbe
 
   list : Box[] = [];
 
@@ -20,9 +19,9 @@ export class BoxCardComponent implements OnInit {
   ngOnInit(): void {
 
     //SERVER OFF
-  this.list = this.boxService.getBoxesOff();
+    //this.list = this.boxService.getBoxesOff();
 
-    //this.getBox();
+    this.getBox();
   }
 
   getBox(){

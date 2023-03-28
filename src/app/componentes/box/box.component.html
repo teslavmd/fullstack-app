@@ -6,7 +6,7 @@
         
         <div class="box-content">
             <div class="box-img">
-                <img [src]="box.foto" alt="">
+                <img [src]="box.foto" alt="" width="100%">
             </div>
             <div class="box-text">
                 <h2>{{box.titulo}}</h2>
@@ -16,8 +16,8 @@
         
     </div>
     <div class="comments-container">
-        <app-comentarios [id_box]="id"  ></app-comentarios>
+        <app-comentarios [id_box]="id" [listOfComments]="box.commentsModelList"></app-comentarios>
     </div>
 </div>
 
-<!-- [listOfComments]="box.commentsModelList" -->
+<!--  -->

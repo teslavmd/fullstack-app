@@ -18,6 +18,9 @@
 .box-container{
     width: 55%;
     height: calc(100vh - 50px);
+    position: sticky;
+    top: 50px;
+    bottom: 0;
 
 }
 
@@ -46,7 +49,6 @@
 
 .box-img{
     padding: 3px;
-    background: var(--first-color);
 }
 
 .box-text{
@@ -76,14 +78,13 @@
 
     .box-container{
         width: 100%;
-        height: calc(80vh - 50px);
-
+        min-height: 100vh ;
+        position: static;
     }
 
     .comments-container{
         width: 100%;
     }
-
 
 }
 

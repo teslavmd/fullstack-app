@@ -15,6 +15,8 @@ export class FormularioBoxComponent implements OnInit {
 
   @Output() showForm = new EventEmitter<boolean>();
 
+  urlImg : boolean = false;
+  base64Img : boolean = false;
 
   titulo : string;
   descripcion : string;
@@ -34,6 +36,14 @@ export class FormularioBoxComponent implements OnInit {
   ngOnInit(): void {
     
 
+  }
+
+  usarURL(){
+    this.urlImg = this.urlImg? false : true;
+  }
+
+  usarBase64(){
+    this.base64Img = this.base64Img? false : true;
   }
 
   addBox(event : Event, data : NgForm){

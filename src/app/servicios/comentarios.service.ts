@@ -15,12 +15,10 @@ export class ComentariosService {
     private http : HttpClient
   ) { }
 
-
-
   getComments() : Observable<Comentario[]>{
     return this.http.get<Comentario[]>(`${this.url}/comments`)
   }
-
+  
   addComent(comment: Comentario, id : string) : Observable<Comentario>{
     return this.http.post<Comentario>(`${this.url}/comments/${id}`, comment);
   }
