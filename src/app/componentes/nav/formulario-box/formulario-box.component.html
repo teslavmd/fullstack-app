@@ -40,23 +40,24 @@
       </div>
       <input
         *ngIf="urlImg"
-        name="foto"
+        name="fotoPath64"
         class="input-img"
+        [(ngModel)]="foto"
         type="text"
         placeholder="imagen"
-        [(ngModel)]="foto"
         required
-      />
-      <input
+        />
+        <input
         *ngIf="base64Img"
-        name="foto"
+        name="fotoPathUrl"
         class="input-img"
+        (change)="handleImg($event)"
         type="file"
         placeholder="imagen"
         [(ngModel)]="foto"
         required
       />
-
+      <img [src]="foto" alt="foto" width="100px">
       <button class="button" type="submit">subir vox</button>
     </form>
   </div>

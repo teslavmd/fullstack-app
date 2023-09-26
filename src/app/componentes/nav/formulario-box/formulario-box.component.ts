@@ -38,6 +38,7 @@ export class FormularioBoxComponent implements OnInit {
 
   }
 
+  //OPCIONES DE INPUT
   usarURL(){
     this.urlImg = this.urlImg? false : true;
   }
@@ -45,7 +46,47 @@ export class FormularioBoxComponent implements OnInit {
   usarBase64(){
     this.base64Img = this.base64Img? false : true;
   }
+  ///////
 
+
+  //EXTRAER BASE64 DE UNA IMAGEN
+  handleImg(event : any){
+
+    
+
+    const file = event.target.files[0];
+
+    console.log(file);
+
+    this.extraerBase64(file).then((image : any) => {
+      this.foto = image.base;
+    })
+    console.log(this.foto)
+    return this.foto;
+  }
+
+  
+  extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
+    try {
+      const reader = new FileReader();
+
+      reader.readAsDataURL($event);
+      reader.onload = () => {
+        resolve({
+          base: reader.result
+        });
+      };
+      reader.onerror = error => {
+        resolve({
+          base: null
+        });
+      };
+    } catch (err) {
+      return null;
+    }
+  })
+
+  //AÑADIR NUEVO BOX
   addBox(event : Event, data : NgForm){
     event.preventDefault();
 
@@ -57,9 +98,9 @@ export class FormularioBoxComponent implements OnInit {
     console.log("date => ", formattedDate);
 
     let box = new Box(
-      data.value.titulo,
-      data.value.descripcion,
-      data.value.foto,
+      this.titulo,
+      this.descripcion,
+      this.foto,
       formattedDate
     )
 
@@ -81,5 +122,5 @@ export class FormularioBoxComponent implements OnInit {
     this.showForm.emit(false);
    
  }
-
+ ////
 }
